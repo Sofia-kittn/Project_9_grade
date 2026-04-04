@@ -4,7 +4,7 @@ import android.icu.text.SimpleDateFormat
 import java.sql.Date
 import java.util.Locale
 
-class Task(
+class Goal(
     val id: Long = 0,
     val title: String = "",
     val isCompleted: Boolean = false,
