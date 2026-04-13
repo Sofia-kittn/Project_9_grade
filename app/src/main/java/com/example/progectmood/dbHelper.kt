@@ -1,8 +1,11 @@
 package com.example.progectmood
 
+import android.content.ContentValues
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
+import android.util.Log
+import android.widget.Toast
 
 class dbHelper(val context: Context):
     SQLiteOpenHelper(context, "app", null, 1){
@@ -18,5 +21,21 @@ class dbHelper(val context: Context):
         newVersion: Int
     ) {
         TODO("Not yet implemented")
+    }
+
+    fun addNote(note: EmotionNote){
+
+    }
+
+    fun delNote(note: EmotionNote){
+
+    }
+
+    fun addGoal(goal: Goal){
+
+    }
+
+    fun delGoal(goal: Goal){
+
     }
 }

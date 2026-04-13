@@ -30,105 +30,97 @@
         android:layout_marginTop="20dp"
         />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tags_question"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:text="Want to add tags?:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/note_text" />
+
+    <EditText
+        android:id="@+id/tags"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tags_question"
+        />
+
+    <RadioGroup
+        android:id="@+id/emotions_group"
         android:layout_width="match_parent"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/note_text"
+        app:layout_constraintTop_toBottomOf="@+id/tags"
         android:layout_marginTop="20dp"
+        android:orientation="horizontal"
         >
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/emotion1"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:text="😢\nBad"
+            android:gravity="center"
+            android:button="@null"
+            android:padding="12dp"
+            android:textAlignment="center" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="1-bad"/>
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="30dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/emotion2"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:text="😐\nMeh"
+            android:gravity="center"
+            android:button="@null"
+            android:padding="12dp"
+            android:textAlignment="center" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="2-meh"/>
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="30dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/emotion3"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:text="😊\nNeutral"
+            android:gravity="center"
+            android:button="@null"
+            android:padding="12dp"
+            android:textAlignment="center" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="3-nutral"/>
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="30dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/emotion4"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:text="😄\nNice"
+            android:gravity="center"
+            android:button="@null"
+            android:padding="12dp"
+            android:textAlignment="center" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="4-nice"/>
-
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="30dp"/>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
+        <RadioButton
+            android:id="@+id/emotion5"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:orientation="vertical"
-            android:layout_weight="1">
+            android:layout_weight="1"
+            android:text="🎉\nGood"
+            android:gravity="center"
+            android:button="@null"
+            android:padding="12dp"
+            android:textAlignment="center" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="70dp"
-                android:text="5-good"/>
 
-            <CheckBox
-                android:layout_width="match_parent"
-                android:layout_height="30dp"/>
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </RadioGroup>
 
 
     <LinearLayout
-        android:id="@+id/buttons_del_save_note"
+        android:id="@+id/buttons_del_save_mood"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -137,6 +129,7 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/button_del_mood"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"
@@ -144,6 +137,7 @@
             android:text="Delete"/>
 
         <Button
+            android:id="@+id/button_save_mood"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_weight="1"
