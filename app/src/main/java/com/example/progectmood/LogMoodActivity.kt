@@ -10,6 +10,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.example.progectmood.db.EmotionLevel
+import com.example.progectmood.db.Note
 
 class LogMoodActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,11 +27,16 @@ class LogMoodActivity : AppCompatActivity() {
 
         var selectedEmotion: String? = null
 
-        buttonSave.setOnClickListener {
-            val note = EmotionNote()
+        val db = MainActivity.instance?.noteDao()
 
-            val db = dbHelper(this)
-            db.addNote(note)
+        buttonSave.setOnClickListener {
+            val note = Note(0, "02", 192, EmotionLevel.MEH, "kdqkwd", emptyList())
+            db?.insertAll(note)
+//            val note = EmotionNote()
+
+//            val db = dbHelper(this)
+//            db.addNote(note)
+
 
             Toast.makeText(this, "Your mood was logged", Toast.LENGTH_SHORT).show()
             val intent = Intent(this, MainActivity::class.java)

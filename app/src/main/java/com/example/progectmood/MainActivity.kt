@@ -8,8 +8,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
+import androidx.room.Room
+import com.example.progectmood.db.AppDatabase
 
 class MainActivity : AppCompatActivity() {
+    companion object {
+        var instance: AppDatabase? = null
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -29,6 +36,8 @@ class MainActivity : AppCompatActivity() {
 
         val goalList: RecyclerView = findViewById(R.id.goals_list)
         val act_goals = arrayListOf<Goal>()
+
+        instance = Room.databaseBuilder(this, AppDatabase::class.java, "app_dbs").build()
 
         // надо разобраться как обновлять список дел каждый день в нули
     }
