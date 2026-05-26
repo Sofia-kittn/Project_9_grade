@@ -18,6 +18,7 @@ import kotlinx.coroutines.launch
 class LogMoodActivity : AppCompatActivity() {
     private var selectedEmotion = EmotionLevel.OK
     private var currentNoteId: Int = -1
+    private var currentNoteDate: Long = -1L
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -46,6 +47,7 @@ class LogMoodActivity : AppCompatActivity() {
                     runOnUiThread {
                         noteText.setText(it.note)
                         tagsText.setText(it.tags.joinToString())
+                        currentNoteDate = it.date
 
                         selectedEmotion = it.emotionLevel
 
@@ -77,12 +79,14 @@ class LogMoodActivity : AppCompatActivity() {
 
             val tagsList = tagsText.text.toString() // TODO: fix that shit, you can type anything
                 .split(",")
-                .map { it.trim() }
+                .map { it.lowercase().trim() }
                 .filter { it.isNotEmpty() }
+                .map { tag -> tag.filter { it.isLetterOrDigit() }}
+                .take(10)
 
             val note = Note(
                 uid = if (currentNoteId == -1) 0 else currentNoteId,
-                date = System.currentTimeMillis(),
+                date = if (currentNoteDate == -1L) System.currentTimeMillis() else currentNoteDate,
                 emotionLevel = selectedEmotion,
                 note = noteContent,
                 tags = tagsList

@@ -26,7 +26,7 @@ class NotesAdapter(
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NoteViewHolder {
 
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.note_item, parent, false)
+            .inflate(R.layout.item_note, parent, false)
 
         return NoteViewHolder(view)
     }
@@ -56,7 +56,7 @@ class NotesAdapter(
 
         holder.note.text = current.note ?: ""
 
-        val formattedDate = DateFormat.getDateTimeInstance()
+        val formattedDate = DateFormat.getDateInstance()
             .format(Date(current.date))
 
         holder.date.text = formattedDate

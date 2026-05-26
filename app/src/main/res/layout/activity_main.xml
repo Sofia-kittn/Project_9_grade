@@ -48,6 +48,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <!-- Statistics section -->
+
+    <TextView
+        android:id="@+id/heatmap_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="Mood Statistics"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/button_notes_list"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <HorizontalScrollView
+        android:id="@+id/heatmap_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scrollbars="none"
+        app:layout_constraintTop_toBottomOf="@id/heatmap_title"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <com.example.progectmood.stats.HeatmapView
+            android:id="@+id/heatmap_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="8dp" />
+
+    </HorizontalScrollView>
+
     <!-- Goals section title -->
 
     <TextView
@@ -58,7 +88,7 @@
         android:text="Goals"
         android:textSize="24sp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/button_notes_list"
+        app:layout_constraintTop_toBottomOf="@id/heatmap_scroll"
         app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Goals list -->

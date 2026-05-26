@@ -9,7 +9,7 @@ import com.example.progectmood.notes.Note
 
 @Dao
 interface NoteDao {
-    @Query("SELECT * FROM notes")
+    @Query("SELECT * FROM notes ORDER BY date DESC")
     fun getAll(): List<Note>
 
 //    @Query("SELECT * FROM notes WHERE tags LIKE :tag") // TODO: search single tags, fix it
