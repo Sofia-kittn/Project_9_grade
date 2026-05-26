@@ -15,7 +15,7 @@
             android:name=".LogMoodActivity"
             android:exported="false" />
         <activity
-            android:name=".createTaskActivity"
+            android:name=".CreateTaskActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
@@ -26,6 +26,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".notes.NotesListActivity"/>
     </application>
 
 </manifest>

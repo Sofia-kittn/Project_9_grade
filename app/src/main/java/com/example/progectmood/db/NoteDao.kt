@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.example.progectmood.notes.Note
 
 @Dao
 interface NoteDao {
@@ -22,4 +23,9 @@ interface NoteDao {
 
     @Delete
     fun delete(note: Note)
+    @Query("SELECT * FROM notes WHERE uid = :id")
+    suspend fun getById(id: Int): Note?
+
+    @Query("DELETE FROM notes WHERE uid = :id")
+    suspend fun deleteById(id: Int)
 }

@@ -5,24 +5,22 @@ import android.os.Bundle
 import android.widget.Button
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.RecyclerView
 import androidx.room.Room
 import com.example.progectmood.db.AppDatabase
+import com.example.progectmood.notes.NotesListActivity
 
 class MainActivity : AppCompatActivity() {
-    companion object {
-        var instance: AppDatabase? = null
-    }
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        enableEdgeToEdge()
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         val buttonLog: Button = findViewById(R.id.button_log)
         val buttonAddGoal: Button = findViewById(R.id.button_add_goal)
+        val buttonNotes: Button = findViewById(R.id.button_notes_list)
 
         buttonLog.setOnClickListener {
             val intent = Intent(this, LogMoodActivity::class.java)
@@ -30,14 +28,19 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonAddGoal.setOnClickListener {
-            val intent = Intent(this, createTaskActivity::class.java)
+            val intent = Intent(this, CreateTaskActivity::class.java)
             startActivity(intent)
         }
 
-        val goalList: RecyclerView = findViewById(R.id.goals_list)
-        val act_goals = arrayListOf<Goal>()
+        buttonNotes.setOnClickListener {
 
-        instance = Room.databaseBuilder(this, AppDatabase::class.java, "app_dbs").build()
+            val intent = Intent(this, NotesListActivity::class.java)
+
+            startActivity(intent)
+        }
+
+//        val goalList: RecyclerView = findViewById(R.id.goals_list)
+//        val act_goals = arrayListOf<Goal>()
 
         // надо разобраться как обновлять список дел каждый день в нули
     }
