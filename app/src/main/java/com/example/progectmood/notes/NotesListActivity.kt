@@ -2,6 +2,7 @@ package com.example.progectmood.notes
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
@@ -14,10 +15,15 @@ import com.example.progectmood.db.AppDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import android.text.Editable
+import android.text.TextWatcher
 
 class NotesListActivity : AppCompatActivity() {
 
     private lateinit var recycler: RecyclerView
+    private lateinit var adapter: NotesAdapter
+
+    private var allNotes: List<Note> = emptyList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -26,6 +32,7 @@ class NotesListActivity : AppCompatActivity() {
         setContentView(R.layout.activity_notes_list)
 
         val backArrow: ImageButton = findViewById(R.id.back_arrow)
+        val searchField: EditText = findViewById(R.id.search_field)
 
         recycler = findViewById(R.id.recycler_notes)
 
@@ -36,6 +43,28 @@ class NotesListActivity : AppCompatActivity() {
         }
 
         loadNotes()
+
+        searchField.addTextChangedListener(object : TextWatcher {
+
+            override fun beforeTextChanged(
+                s: CharSequence?,
+                start: Int,
+                count: Int,
+                after: Int
+            ) {}
+
+            override fun onTextChanged(
+                s: CharSequence?,
+                start: Int,
+                before: Int,
+                count: Int
+            ) {
+
+                filterNotes(s.toString())
+            }
+
+            override fun afterTextChanged(s: Editable?) {}
+        })
     }
 
     private fun loadNotes() {
@@ -48,7 +77,9 @@ class NotesListActivity : AppCompatActivity() {
 
             withContext(Dispatchers.Main) {
 
-                val adapter = NotesAdapter(notes) { note ->
+                allNotes = notes
+
+                adapter = NotesAdapter(notes) { note ->
 
                     val intent = Intent(
                         this@NotesListActivity,
@@ -63,6 +94,34 @@ class NotesListActivity : AppCompatActivity() {
                 recycler.adapter = adapter
             }
         }
+    }
+
+    private fun filterNotes(query: String) {
+
+        val filtered = allNotes.filter { note ->
+
+            val search = query.lowercase()
+
+            note.note.lowercase().contains(search) ||
+
+                    note.tags.any {
+                        it.lowercase().contains(search)
+                    }
+        }
+
+        adapter = NotesAdapter(filtered) { note ->
+
+            val intent = Intent(
+                this@NotesListActivity,
+                LogMoodActivity::class.java
+            )
+
+            intent.putExtra("note_id", note.uid)
+
+            startActivity(intent)
+        }
+
+        recycler.adapter = adapter
     }
 
     override fun onResume() {

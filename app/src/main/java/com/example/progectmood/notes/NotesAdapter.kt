@@ -54,7 +54,7 @@ class NotesAdapter(
 
         holder.tags.text = current.tags.joinToString(" ") { "#$it" }
 
-        holder.note.text = current.note ?: ""
+        holder.note.text = current.note
 
         val formattedDate = DateFormat.getDateInstance()
             .format(Date(current.date))

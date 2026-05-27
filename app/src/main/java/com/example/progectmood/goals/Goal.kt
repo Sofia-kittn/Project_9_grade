@@ -1,4 +1,4 @@
-package com.example.progectmood.db
+package com.example.progectmood.goals
 
 import android.icu.text.SimpleDateFormat
 import androidx.room.ColumnInfo
@@ -7,10 +7,9 @@ import androidx.room.PrimaryKey
 import java.sql.Date
 import java.util.Locale
 
-
 @Entity(tableName = "goals")
 data class Goal(
-    @PrimaryKey val uid: Int,
+    @PrimaryKey(autoGenerate = true) val uid: Int = 0,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "is_completed") val isCompleted: Boolean,
     @ColumnInfo(name = "date") val date: Long, // TODO: date format?

@@ -5,10 +5,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="12dp"
+    android:layout_marginHorizontal="4dp"
     android:layout_marginVertical="6dp"
     app:cardCornerRadius="20dp"
-    app:cardElevation="4dp">
+    app:cardElevation="2dp"
+    app:cardBackgroundColor="#FDF5E6"
+    app:strokeColor="#60C97B63"
+    app:strokeWidth="2dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -29,8 +32,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="😊 Good"
-                android:textSize="24sp"
-                android:textStyle="bold"/>
+                android:textColor="#5C4033"
+                android:textSize="22sp"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/text_date"
@@ -38,8 +42,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="12dp"
                 android:text="26 May 2026"
-                android:textColor="#777777"
-                android:textSize="14sp" />
+                android:textColor="#8A6A5A"
+                android:textSize="13sp" />
 
         </LinearLayout>
 
@@ -50,10 +54,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="14dp"
-            android:maxLines="4"
             android:ellipsize="end"
+            android:maxLines="4"
             android:text="Today was actually pretty nice..."
-            android:textSize="17sp" />
+            android:textColor="#5C4033"
+            android:textSize="16sp"
+            android:lineSpacingExtra="2dp" />
 
         <!-- Tags -->
 
@@ -63,8 +69,9 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:text="#work #friends"
-            android:textColor="#666666"
-            android:textSize="13sp" />
+            android:textColor="#C97B63"
+            android:textSize="13sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 

@@ -5,6 +5,7 @@ import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
+import com.example.progectmood.goals.Goal
 
 @Dao
 interface GoalDao {
@@ -19,4 +20,9 @@ interface GoalDao {
 
     @Delete
     fun delete(goal: Goal)
+    @Query("SELECT * FROM goals WHERE uid = :id")
+    suspend fun getById(id: Int): Goal?
+
+    @Query("DELETE FROM goals WHERE uid = :id")
+    suspend fun deleteById(id: Int)
 }

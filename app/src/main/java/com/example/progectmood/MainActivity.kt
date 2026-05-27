@@ -7,7 +7,11 @@ import android.widget.HorizontalScrollView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.example.progectmood.db.AppDatabase
+import com.example.progectmood.goals.CreateGoalActivity
+import com.example.progectmood.goals.GoalsAdapter
 import com.example.progectmood.notes.NotesListActivity
 import com.example.progectmood.stats.HeatmapManager
 import com.example.progectmood.stats.HeatmapView
@@ -16,7 +20,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
 class MainActivity : AppCompatActivity() {
-
+    private lateinit var goalsList: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         enableEdgeToEdge()
@@ -25,6 +29,7 @@ class MainActivity : AppCompatActivity() {
 
         val buttonLog: Button = findViewById(R.id.button_log)
         val buttonNotes: Button = findViewById(R.id.button_notes_list)
+
         val buttonAddGoal: Button = findViewById(R.id.button_add_goal)
 
         buttonLog.setOnClickListener {
@@ -33,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         buttonAddGoal.setOnClickListener {
-            val intent = Intent(this, CreateTaskActivity::class.java)
+            val intent = Intent(this, CreateGoalActivity::class.java)
             startActivity(intent)
         }
 
@@ -44,7 +49,8 @@ class MainActivity : AppCompatActivity() {
             startActivity(intent)
         }
 
-//        val goalList: RecyclerView = findViewById(R.id.goals_list)
+        goalsList = findViewById(R.id.goals_list)
+        goalsList.layoutManager = LinearLayoutManager(this)
 //        val act_goals = arrayListOf<Goal>()
 
         // надо разобраться как обновлять список дел каждый день в нули
@@ -54,6 +60,7 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
 
         setupHeatmap()
+        loadGoals()
     }
 
     private fun setupHeatmap() {
@@ -80,4 +87,52 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+    private fun loadGoals() {
+
+        val db = AppDatabase.getDatabase(this)
+
+        lifecycleScope.launch(Dispatchers.IO) {
+
+            val goals = db.goalDao().getAll()
+
+            withContext(Dispatchers.Main) {
+
+                val adapter = GoalsAdapter(
+
+                    goals = goals,
+
+                    onClick = { goal ->
+
+                        val intent = Intent(
+                            this@MainActivity,
+                            CreateGoalActivity::class.java
+                        )
+
+                        intent.putExtra(
+                            "goal_id",
+                            goal.uid
+                        )
+
+                        startActivity(intent)
+                    },
+
+                    onCheckedChange = { goal, isChecked ->
+
+                        lifecycleScope.launch(Dispatchers.IO) {
+
+                            db.goalDao().updateGoal(
+                                goal.copy(
+                                    isCompleted = isChecked
+                                )
+                            )
+                        }
+                    }
+                )
+
+                goalsList.adapter = adapter
+            }
+        }
+    }
+
 }

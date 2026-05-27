@@ -15,7 +15,7 @@
             android:name=".LogMoodActivity"
             android:exported="false" />
         <activity
-            android:name=".CreateTaskActivity"
+            android:name=".goals.CreateGoalActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
