@@ -1,4 +1,4 @@
-package com.example.progectmood.goals
+package com.example.projectmood.goals
 
 import android.icu.text.SimpleDateFormat
 import androidx.room.ColumnInfo

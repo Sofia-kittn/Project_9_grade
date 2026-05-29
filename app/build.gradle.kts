@@ -6,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.progectmood"
+    namespace = "com.example.projectmood"
     compileSdk = 36
 
     defaultConfig {

@@ -1,12 +1,12 @@
-package com.example.progectmood.notes
+package com.example.projectmood.notes
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.progectmood.R
-import com.example.progectmood.db.EmotionLevel
+import com.example.projectmood.R
+import com.example.projectmood.db.EmotionLevel
 import java.text.DateFormat
 import java.util.Date
 

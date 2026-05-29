@@ -1,4 +1,4 @@
-package com.example.progectmood.stats
+package com.example.projectmood.stats
 
 import android.content.Context
 import android.graphics.Canvas
@@ -7,7 +7,6 @@ import android.graphics.Paint
 import android.graphics.RectF
 import android.util.AttributeSet
 import android.view.View
-import kotlin.math.max
 import androidx.core.graphics.toColorInt
 import java.text.SimpleDateFormat
 import java.util.Locale

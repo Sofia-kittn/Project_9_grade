@@ -1,4 +1,4 @@
-package com.example.progectmood
+package com.example.projectmood
 
 import org.junit.Test
 

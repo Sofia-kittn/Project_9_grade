@@ -1,4 +1,4 @@
-package com.example.progectmood
+package com.example.projectmood
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,12 +9,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.progectmood.db.AppDatabase
-import com.example.progectmood.goals.CreateGoalActivity
-import com.example.progectmood.goals.GoalsAdapter
-import com.example.progectmood.notes.NotesListActivity
-import com.example.progectmood.stats.HeatmapManager
-import com.example.progectmood.stats.HeatmapView
+import com.example.projectmood.db.AppDatabase
+import com.example.projectmood.goals.CreateGoalActivity
+import com.example.projectmood.goals.GoalsAdapter
+import com.example.projectmood.notes.NotesListActivity
+import com.example.projectmood.stats.HeatmapManager
+import com.example.projectmood.stats.HeatmapView
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

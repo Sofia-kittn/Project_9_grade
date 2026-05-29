@@ -1,11 +1,11 @@
-package com.example.progectmood.db
+package com.example.projectmood.db
 
 import androidx.room.Dao
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.progectmood.notes.Note
+import com.example.projectmood.notes.Note
 
 @Dao
 interface NoteDao {

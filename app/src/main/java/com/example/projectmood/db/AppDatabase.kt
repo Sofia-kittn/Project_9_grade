@@ -1,4 +1,4 @@
-package com.example.progectmood.db
+package com.example.projectmood.db
 
 //import androidx.room.Database
 //import androidx.room.RoomDatabase
@@ -7,8 +7,8 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.example.progectmood.goals.Goal
-import com.example.progectmood.notes.Note
+import com.example.projectmood.goals.Goal
+import com.example.projectmood.notes.Note
 
 @Database(entities = [Goal::class, Note::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)

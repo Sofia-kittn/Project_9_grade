@@ -1,4 +1,4 @@
-package com.example.progectmood.notes
+package com.example.projectmood.notes
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,9 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.progectmood.LogMoodActivity
-import com.example.progectmood.R
-import com.example.progectmood.db.AppDatabase
+import com.example.projectmood.LogMoodActivity
+import com.example.projectmood.R
+import com.example.projectmood.db.AppDatabase
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext

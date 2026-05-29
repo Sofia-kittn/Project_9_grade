@@ -1,7 +1,6 @@
-package com.example.progectmood.stats
+package com.example.projectmood.stats
 
-import com.example.progectmood.db.EmotionLevel
-import com.example.progectmood.notes.Note
+import com.example.projectmood.notes.Note
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Locale

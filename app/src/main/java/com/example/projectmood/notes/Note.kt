@@ -1,9 +1,9 @@
-package com.example.progectmood.notes
+package com.example.projectmood.notes
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.progectmood.db.EmotionLevel
+import com.example.projectmood.db.EmotionLevel
 
 @Entity(tableName = "notes")
 data class Note(

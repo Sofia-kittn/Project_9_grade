@@ -1,4 +1,4 @@
-package com.example.progectmood.db
+package com.example.projectmood.db
 
 import androidx.room.TypeConverter
 

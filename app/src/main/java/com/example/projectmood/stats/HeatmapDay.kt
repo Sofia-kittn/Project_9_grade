@@ -1,4 +1,4 @@
-package com.example.progectmood.stats
+package com.example.projectmood.stats
 
 data class HeatmapDay(
     val dateString: String,

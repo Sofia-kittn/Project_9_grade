@@ -1,4 +1,4 @@
-package com.example.progectmood.goals
+package com.example.projectmood.goals
 
 import android.os.Bundle
 import android.widget.Button
@@ -8,10 +8,10 @@ import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
-import com.example.progectmood.db.AppDatabase
+import com.example.projectmood.db.AppDatabase
 import kotlinx.coroutines.Dispatchers
 
-import com.example.progectmood.R
+import com.example.projectmood.R
 import kotlinx.coroutines.launch
 
 class CreateGoalActivity : AppCompatActivity() {

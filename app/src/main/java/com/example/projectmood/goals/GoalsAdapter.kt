@@ -1,4 +1,4 @@
-package com.example.progectmood.goals
+package com.example.projectmood.goals
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.CheckBox
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.progectmood.R
+import com.example.projectmood.R
 import java.text.DateFormat
 import java.util.Date
 
