@@ -19,6 +19,6 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "ProgectMood"
+rootProject.name = "ProjectMood"
 include(":app")
  
